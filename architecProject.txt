@@ -1,0 +1,78 @@
+inventario-tesoreria-frontend/
+│
+├── assets/
+│   ├── css/
+│   │   ├── main.css                # Estilos principales
+│   │   ├── components/             # Estilos por componentes
+│   │   │   ├── buttons.css
+│   │   │   ├── forms.css
+│   │   │   ├── tables.css
+│   │   │   └── modals.css
+│   │   └── views/                  # Estilos por vistas
+│   │       ├── compras.css
+│   │       ├── gastos.css
+│   │       ├── inventario.css
+│   │       ├── proveedores.css
+│   │       └── usuarios.css
+│   │
+│   ├── js/
+│   │   ├── app.js                  # Configuración principal
+│   │   ├── api/                    # Conexión con endpoints
+│   │   │   ├── api.js              # Configuración base de la API
+│   │   │   ├── compras.js
+│   │   │   ├── gastos.js
+│   │   │   ├── inventario.js
+│   │   │   ├── proveedores.js
+│   │   │   └── usuarios.js
+│   │   ├── components/             # Componentes reutilizables
+│   │   │   ├── modal.js
+│   │   │   ├── notifications.js
+│   │   │   ├── sidebar.js
+│   │   │   └── table-manager.js
+│   │   └── views/                  # Lógica por vista
+│   │       ├── compras.js
+│   │       ├── gastos.js
+│   │       ├── inventario.js
+│   │       ├── proveedores.js
+│   │       └── usuarios.js
+│   │
+│   └── images/                     # Imágenes e iconos
+│
+├── views/
+│   ├── partials/                   # Componentes reutilizables
+│   │   ├── header.html
+│   │   ├── sidebar.html
+│   │   ├── footer.html
+│   │   └── modal-base.html
+│   │
+│   ├── compras/                    # Vistas de compras
+│   │   ├── listar.html
+│   │   ├── registrar.html
+│   │   └── editar.html
+│   │
+│   ├── gastos/                     # Vistas de gastos
+│   │   ├── listar.html
+│   │   ├── registrar.html
+│   │   └── editar.html
+│   │
+│   ├── inventario/                 # Vistas de inventario
+│   │   ├── listar.html
+│   │   ├── registrar.html
+│   │   └── editar.html
+│   │
+│   ├── proveedores/                # Vistas de proveedores
+│   │   ├── listar.html
+│   │   ├── registrar.html
+│   │   └── editar.html
+│   │
+│   ├── usuarios/                   # Vistas de usuarios
+│   │   ├── listar.html
+│   │   ├── registrar.html
+│   │   └── editar.html
+│   │
+│   ├── dashboard.html              # Página principal
+│   ├── login.html                  # Página de inicio de sesión
+│   └── 404.html                    # Página de error
+│
+├── index.html                      # Punto de entrada principal
+└── README.md                       # Documentación del frontend
