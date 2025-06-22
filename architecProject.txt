@@ -1,21 +1,22 @@
-teso-frontend/
+inventario-tesoreria-frontend/
 │
 ├── assets/
-│   ├── css/
+│   ├── css/Add commentMore actions
 │   │   ├── main.css                # Estilos principales
 │   │   ├── components/             # Estilos por componentes
 │   │   │   ├── buttons.css
 │   │   │   ├── forms.css
 │   │   │   ├── tables.css
-│   │   │   ├── foter.css
-│   │   │   ├── header.js
+│   │   │   ├── notifications.css
 │   │   │   └── modals.css
 │   │   └── views/                  # Estilos por vistas
 │   │       ├── compras.css
 │   │       ├── gastos.css
 │   │       ├── inventario.css
 │   │       ├── proveedores.css
-│   │       └── usuarios.css
+│   │       ├── dashboard.css
+│   │       └── login.css 
+│   │       └── usuarios.css        
 │   │
 │   ├── js/
 │   │   ├── app.js                  # Configuración principal
@@ -30,14 +31,13 @@ teso-frontend/
 │   │   │   ├── modal.js
 │   │   │   ├── notifications.js
 │   │   │   ├── sidebar.js
-│   │   │   ├── header.js
-│   │   │   ├── foter.js
 │   │   │   └── table-manager.js
 │   │   └── views/                  # Lógica por vista
 │   │       ├── compras.js
 │   │       ├── gastos.js
 │   │       ├── inventario.js
 │   │       ├── proveedores.js
+│   │       ├── login.js
 │   │       └── usuarios.js
 │   │
 │   └── images/                     # Imágenes e iconos
@@ -80,7 +80,6 @@ teso-frontend/
 │
 ├── index.html                      # Punto de entrada principal
 └── README.md                       # Documentación del frontend
-
 =======================================================================
                         Orden de Implementación
 =======================================================================
@@ -102,7 +101,7 @@ Vamos a construir el frontend paso a paso, siguiendo un orden lógico que garant
 3. **Sistema de Autenticación**
    - `views/login.html` (Página de inicio de sesión)
    - `assets/css/views/login.css` (Estilos específicos para login)
-   - `assets/js/api/usuarios.js` (Métodos de autenticación)
+   - `assets/js/api/login.js` (Métodos de autenticación)
 
 4. **Dashboard Principal**
    - `views/dashboard.html` (Vista principal después del login)

@@ -1,75 +1,88 @@
-/* ========== BASE STYLES ========== */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+/* Variables CSS */
 :root {
-  --primary: #2563eb;
-  --primary-dark: #1d4ed8;
-  --secondary: #64748b;
-  --success: #10b981;
-  --danger: #ef4444;
-  --warning: #f59e0b;
-  --light: #f8fafc;
-  --dark: #1e293b;
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --background-color: #f8f9fa;
+  --text-color: #212529;
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* ========== GLOBAL STYLES ========== */
-html {
-  @apply scroll-smooth;
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  @apply bg-gray-50 text-gray-800;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
-/* ========== LOADER ANIMATION ========== */
-.loader-container {
-  transition: opacity 0.3s ease-out;
+/* Contenedor principal */
+#app {
+  padding: 20px;
+}
+.header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.loader {
-  animation: spin 1s linear infinite;
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
 }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+.sidebar {
+  width: 200px;
+  background-color: #e9ecef;
+  padding: 1rem;
+  height: 100vh;
+  position: fixed;
 }
 
-/* ========== TRANSITIONS ========== */
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.2s ease;
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #f1f1f1;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
+.modal.hidden {
+  display: none;
 }
 
-/* ========== TYPOGRAPHY ========== */
-h1 {
-  @apply text-3xl font-bold text-gray-900 mb-6;
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-h2 {
-  @apply text-2xl font-semibold text-gray-800 mb-4;
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  position: relative;
 }
 
-/* ========== UTILITY CLASSES ========== */
-.shadow-card {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
-}
-
-/* ========== PRINT STYLES ========== */
-@media print {
-  body {
-    @apply bg-white;
-  }
-  
-  .no-print {
-    display: none !important;
-  }
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+  font-size: 1.5rem;
 }

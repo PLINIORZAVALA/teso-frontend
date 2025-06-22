@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="../../assets/css/components/buttons.css">
+<link rel="stylesheet" href="../../assets/css/components/forms.css">
+<link rel="stylesheet" href="../../assets/css/components/tables.css">
+<link rel="stylesheet" href="../../assets/css/views/usuarios.css">
+<section class="usuarios-lista">
+  <h2>Usuarios</h2>
+
+  <button class="btn-primary" onclick="window.location.hash = '#/usuarios/registrar'">
+    ➕ Nuevo usuario
+  </button>
+
+  <table id="tabla-usuarios" class="table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Correo</th>
+        <th>Rol</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Cargado dinámicamente -->
+    </tbody>
+  </table>
+</section>

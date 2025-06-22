@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="../../assets/css/components/buttons.css">
+<link rel="stylesheet" href="../../assets/css/components/forms.css">
+<link rel="stylesheet" href="../../assets/css/components/tables.css">
+<link rel="stylesheet" href="../../assets/css/views/gastos.css">
+<section class="gastos-lista">
+  <h2>Gastos</h2>
+
+  <button class="btn-primary" onclick="window.location.hash = '#/gastos/registrar'">
+    ➕ Nuevo gasto
+  </button>
+
+  <table id="tabla-gastos" class="table">
+    <thead>
+      <tr>
+        <th>Descripción</th>
+        <th>Categoría</th>
+        <th>Monto</th>
+        <th>Fecha</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Datos cargados dinámicamente -->
+    </tbody>
+  </table>
+</section>

@@ -1,0 +1,22 @@
+.pagina-404 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  text-align: center;
+  background-color: #f8f9fa;
+}
+
+.contenedor-404 {
+  padding: 2rem;
+}
+
+.contenedor-404 h1 {
+  font-size: 6rem;
+  color: var(--primary-color, #007bff);
+}
+
+.contenedor-404 p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
