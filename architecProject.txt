@@ -1,4 +1,4 @@
-inventario-tesoreria-frontend/
+teso-frontend/
 │
 ├── assets/
 │   ├── css/
@@ -7,6 +7,8 @@ inventario-tesoreria-frontend/
 │   │   │   ├── buttons.css
 │   │   │   ├── forms.css
 │   │   │   ├── tables.css
+│   │   │   ├── foter.css
+│   │   │   ├── header.js
 │   │   │   └── modals.css
 │   │   └── views/                  # Estilos por vistas
 │   │       ├── compras.css
@@ -28,6 +30,8 @@ inventario-tesoreria-frontend/
 │   │   │   ├── modal.js
 │   │   │   ├── notifications.js
 │   │   │   ├── sidebar.js
+│   │   │   ├── header.js
+│   │   │   ├── foter.js
 │   │   │   └── table-manager.js
 │   │   └── views/                  # Lógica por vista
 │   │       ├── compras.js
@@ -76,3 +80,64 @@ inventario-tesoreria-frontend/
 │
 ├── index.html                      # Punto de entrada principal
 └── README.md                       # Documentación del frontend
+
+=======================================================================
+                        Orden de Implementación
+=======================================================================
+Vamos a construir el frontend paso a paso, siguiendo un orden lógico que garantice una base sólida y consistente. Aquí está la secuencia recomendada:
+
+### **Orden de Implementación**
+
+1. **Estructura Base y Configuración Inicial**
+   - `index.html` (Punto de entrada principal)
+   - `assets/css/main.css` (Estilos base y variables CSS)
+   - `assets/js/app.js` (Configuración inicial del router y carga de vistas)
+
+2. **Componentes Globales**
+   - `views/partials/header.html` (Barra de navegación superior)
+   - `views/partials/sidebar.html` (Menú lateral)
+   - `views/partials/footer.html` (Pie de página)
+   - `views/partials/modal-base.html` (Plantilla para modales)
+
+3. **Sistema de Autenticación**
+   - `views/login.html` (Página de inicio de sesión)
+   - `assets/css/views/login.css` (Estilos específicos para login)
+   - `assets/js/api/usuarios.js` (Métodos de autenticación)
+
+4. **Dashboard Principal**
+   - `views/dashboard.html` (Vista principal después del login)
+   - `assets/css/views/dashboard.css` (Estilos del dashboard)
+
+5. **Componentes Reutilizables (JS)**
+   - `assets/js/components/modal.js` (Gestión de modales)
+   - `assets/js/components/notifications.js` (Notificaciones toast)
+   - `assets/js/components/table-manager.js` (Manipulación de tablas)
+
+6. **Estilos de Componentes**
+   - `assets/css/components/buttons.css` (Botones primarios, secundarios, etc.)
+   - `assets/css/components/forms.css` (Inputs, selects, labels)
+   - `assets/css/components/tables.css` (Tablas con estilo profesional)
+   - `assets/css/components/modals.css` (Estilos para ventanas modales)
+
+7. **Vistas CRUD (Priorizar según necesidad)**
+   - **Inventario** (Ejemplo inicial):
+     - `views/inventario/listar.html` (Tabla de items)
+     - `views/inventario/registrar.html` (Formulario de registro)
+     - `assets/js/views/inventario.js` (Lógica de la vista)
+     - `assets/js/api/inventario.js` (Conexión con API)
+     - `assets/css/views/inventario.css` (Estilos específicos)
+
+   - Luego repetir para:
+     - Compras (`compras/`)
+     - Gastos (`gastos/`)
+     - Proveedores (`proveedores/`)
+     - Usuarios (`usuarios/`)
+
+8. **Página de Error**
+   - `views/404.html` (Página para rutas no encontradas)
+
+9. **Documentación**
+   - `README.md` (Instrucciones de instalación y uso)
+=======================================================================
+                        
+=======================================================================

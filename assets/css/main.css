@@ -1,0 +1,75 @@
+/* ========== BASE STYLES ========== */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --secondary: #64748b;
+  --success: #10b981;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  --light: #f8fafc;
+  --dark: #1e293b;
+}
+
+/* ========== GLOBAL STYLES ========== */
+html {
+  @apply scroll-smooth;
+}
+
+body {
+  @apply bg-gray-50 text-gray-800;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* ========== LOADER ANIMATION ========== */
+.loader-container {
+  transition: opacity 0.3s ease-out;
+}
+
+.loader {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ========== TRANSITIONS ========== */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+/* ========== TYPOGRAPHY ========== */
+h1 {
+  @apply text-3xl font-bold text-gray-900 mb-6;
+}
+
+h2 {
+  @apply text-2xl font-semibold text-gray-800 mb-4;
+}
+
+/* ========== UTILITY CLASSES ========== */
+.shadow-card {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+/* ========== PRINT STYLES ========== */
+@media print {
+  body {
+    @apply bg-white;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+}
