@@ -1,25 +1,26 @@
-<link rel="stylesheet" href="../../assets/css/components/buttons.css">
-<link rel="stylesheet" href="../../assets/css/components/forms.css">
-<link rel="stylesheet" href="../../assets/css/components/tables.css">
-<link rel="stylesheet" href="../../assets/css/views/usuarios.css">
-<section class="usuarios-lista">
-  <h2>Usuarios</h2>
-
-  <button class="btn-primary" onclick="window.location.hash = '#/usuarios/registrar'">
-    ➕ Nuevo usuario
-  </button>
-
-  <table id="tabla-usuarios" class="table">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Listado de Usuarios</title>
+  <link rel="stylesheet" href="#">
+</head>
+<body>
+  <h2>Listado de Usuarios</h2>
+  <button onclick="window.location.href='registrar.html'">Registrar Usuario</button>
+  <table border="1">
     <thead>
       <tr>
+        <th>ID</th>
         <th>Nombre</th>
         <th>Correo</th>
         <th>Rol</th>
-        <th>Estado</th>
+        <th>Acciones</th>
       </tr>
     </thead>
-    <tbody>
-      <!-- Cargado dinámicamente -->
-    </tbody>
+    <tbody id="tabla-usuarios"></tbody>
   </table>
-</section>
+
+  <script type="module" src="../../assets/js/views/usuarios.js"></script>
+</body>
+</html>

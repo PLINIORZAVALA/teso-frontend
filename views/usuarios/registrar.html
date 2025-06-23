@@ -1,56 +1,20 @@
-<link rel="stylesheet" href="../../assets/css/components/buttons.css">
-<link rel="stylesheet" href="../../assets/css/components/forms.css">
-<link rel="stylesheet" href="../../assets/css/components/tables.css">
-<link rel="stylesheet" href="../../assets/css/views/usuarios.css">
-<section class="usuarios-form">
+<!-- views/usuarios/registrar.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registrar Usuario</title>
+  <link rel="stylesheet" href="#>
+</head>
+<body>
   <h2>Registrar Usuario</h2>
-
-  <form id="form-registrar-usuario">
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="nombre" required />
-
-    <label for="correo">Correo electrónico:</label>
-    <input type="email" id="correo" name="correo" required />
-
-    <label for="rol">Rol:</label>
-    <select id="rol" name="rol" required>
-      <option value="">Seleccione un rol</option>
-      <option value="admin">Administrador</option>
-      <option value="user">Usuario</option>
-    </select>
-
-    <label for="estado">Estado:</label>
-    <select id="estado" name="estado" required>
-      <option value="activo">Activo</option>
-      <option value="inactivo">Inactivo</option>
-    </select>
-
-    <button type="submit" class="btn-primary">Guardar</button>
+  <form id="form-usuario">
+    <input type="text" name="nombre" placeholder="Nombre" required />
+    <input type="email" name="correo" placeholder="Correo" required />
+    <input type="text" name="rol" placeholder="Rol" required />
+    <button type="submit">Registrar</button>
   </form>
-</section>
 
-<script type="module">
-  import { registrarUsuario } from '../../assets/js/api/usuarios.js';
-  import { showNotification } from '../../assets/js/components/notifications.js';
-
-  const form = document.getElementById('form-registrar-usuario');
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const usuario = {
-      nombre: form.nombre.value,
-      correo: form.correo.value,
-      rol: form.rol.value,
-      estado: form.estado.value
-    };
-
-    const resultado = await registrarUsuario(usuario);
-    if (resultado.success) {
-      showNotification('Usuario registrado correctamente');
-      window.location.hash = '#/usuarios';
-    } else {
-      showNotification('Error al registrar usuario', 'error');
-    }
-  });
-</script>
+  <script type="module" src="../../assets/js/views/usuarios.js"></script>
+</body>
+</html>

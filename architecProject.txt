@@ -138,5 +138,67 @@ Vamos a construir el frontend paso a paso, siguiendo un orden lógico que garant
 9. **Documentación**
    - `README.md` (Instrucciones de instalación y uso)
 =======================================================================
-                        
+                   Conexion con el API
 =======================================================================
+## ✅ **Módulos ya utilizables con la API disponible**
+
+1. ### 🔐 **Autenticación**
+
+   Aunque el backend no incluye explícitamente un endpoint de login en tu descripción, si ya lo tienes implementado, puedes conectar `views/login.html` y `assets/js/views/login.js` al endpoint correspondiente. Si no, podrías comenzar agregando ese endpoint (`/api/login`) en el backend para autenticar por `correo` o `nombre`.
+
+2. ### 👥 **Usuarios**
+
+   * Endpoints: `GET`, `POST`, `PUT`, `DELETE` → `/api/usuarios/`
+   * Frontend:
+
+     * `views/usuarios/listar.html`
+     * `views/usuarios/registrar.html`
+     * `views/usuarios/editar.html`
+     * `assets/js/views/usuarios.js`
+     * `assets/js/api/usuarios.js`
+
+3. ### 🧾 **Proveedores**
+
+   * Endpoints: `GET`, `POST` → `/api/proveedor/`
+   * Frontend:
+
+     * `views/proveedores/listar.html`
+     * `views/proveedores/registrar.html`
+     * `views/proveedores/editar.html` (aunque tu backend aún no muestra `PUT`/`DELETE`)
+     * `assets/js/views/proveedores.js`
+     * `assets/js/api/proveedores.js`
+
+4. ### 🛒 **Compras**
+
+   * Endpoints: `GET`, `POST` → `/api/compra/`
+   * Frontend:
+
+     * `views/compras/listar.html`
+     * `views/compras/registrar.html`
+     * `views/compras/editar.html` (similar a proveedores, podrías preparar el frontend para futuros `PUT`/`DELETE`)
+     * `assets/js/views/compras.js`
+     * `assets/js/api/compras.js`
+
+5. ### 📦 **Inventario**
+
+   * Endpoints: `GET`, `POST` → `/api/inventario/`
+   * Frontend:
+
+     * `views/inventario/listar.html`
+     * `views/inventario/registrar.html`
+     * `views/inventario/editar.html`
+     * `assets/js/views/inventario.js`
+     * `assets/js/api/inventario.js`
+
+6. ### 💰 **Gastos**
+
+   * Endpoints: `GET`, `POST` → `/api/gastos/`
+   * Frontend:
+
+     * `views/gastos/listar.html`
+     * `views/gastos/registrar.html`
+     * `views/gastos/editar.html`
+     * `assets/js/views/gastos.js`
+     * `assets/js/api/gastos.js`
+
+---

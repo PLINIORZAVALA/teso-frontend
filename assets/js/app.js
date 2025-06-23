@@ -1,30 +1,33 @@
-// assets/js/app.js
 const routes = {
   '/': 'views/dashboard.html',
-  '/login': 'views/login.html',
+  '/usuarios': 'views/usuarios/listar.html',
+  '/usuarios/registrar': 'views/usuarios/registrar.html',
+  '/usuarios/editar': 'views/usuarios/editar.html',
   '/404': 'views/404.html',
-  // Puedes agregar más rutas aquí...
 };
 
-// Cargar vista por ruta
 async function loadView(route) {
   const path = routes[route] || routes['/404'];
+
   try {
     const res = await fetch(path);
     const html = await res.text();
     document.getElementById('app').innerHTML = html;
-  } catch (error) {
-    console.error('Error cargando la vista:', error);
-    document.getElementById('app').innerHTML = '<h2>Error al cargar la página.</h2>';
+
+    if (route.startsWith('/usuarios')) {
+      const module = await import('./views/usuarios.js');
+      await module.initUsuarios(route);
+    }
+  } catch (err) {
+    document.getElementById('app').innerHTML = `<h2>Error cargando la vista</h2>`;
+    console.error(err);
   }
 }
 
-// Controlador de rutas usando hash
 function router() {
-  const route = window.location.hash.replace('#', '') || '/';
+  const route = window.location.hash.slice(1) || '/'; // quitar #
   loadView(route);
 }
 
-// Detectar cambios de ruta
 window.addEventListener('hashchange', router);
 window.addEventListener('DOMContentLoaded', router);
