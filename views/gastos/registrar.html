@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
-<link rel="stylesheet" href="../../assets/css/views/registrar.css">
 <head>
   <meta charset="UTF-8">
   <title>Registrar Gasto</title>
+  <link rel="stylesheet" href="../../assets/css/views/registrar.css">
 </head>
 <body>
   <h2>Registrar Gasto</h2>
   <form id="form-gasto">
-    <input type="text" name="descripcion" placeholder="Descripción" required />
-    <input type="number" name="monto" placeholder="Monto" required />
-    <input type="number" name="compra_id" placeholder="ID de Compra" required />
+    <input name="descripcion" placeholder="Descripción" required />
+    <input name="monto" type="number" placeholder="Monto" required />
+    <input name="compra_id" type="number" placeholder="ID Compra" required />
     <button type="submit">Registrar</button>
   </form>
-
-  <script type="module" src="../../assets/js/views/gastos.js"></script>
 </body>
 </html>

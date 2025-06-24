@@ -3,23 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <title>Listado de Gastos</title>
+  <link rel="stylesheet" href="../../assets/css/views/listar.css">
 </head>
-<link rel="stylesheet" href="../../assets/css/views/listar.css">
 <body>
   <h2>Listado de Gastos</h2>
-  <button onclick="window.location.href='registrar.html'">Registrar Gasto</button>
+  <button onclick="window.location.hash = '#/gastos/registrar'">Registrar Gasto</button>
   <table border="1">
     <thead>
-      <tr>
-        <th>ID</th>
-        <th>Descripción</th>
-        <th>Monto</th>
-        <th>ID Compra</th>
-      </tr>
+      <tr><th>ID</th><th>Descripción</th><th>Monto</th><th>ID Compra</th></tr>
     </thead>
     <tbody id="tabla-gastos"></tbody>
   </table>
-
-  <script type="module" src="../../assets/js/views/gastos.js"></script>
 </body>
 </html>

@@ -1,19 +1,17 @@
-// assets/js/api/usuarios.js
+// assets/js/api/login.js
+const API_URL = 'http://localhost:5001/api/usuarios/login';
 
-const API_BASE_URL = 'http://localhost:3000/api'; // Reemplaza por tu URL real
+export async function loginUsuario(data) {
+  const res = await fetch(API_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  });
 
-export async function login(email, password) {
-  try {
-    const res = await fetch(`${API_BASE_URL}/auth/login`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password }),
-    });
-
-    const data = await res.json();
-    return data;
-  } catch (error) {
-    console.error('Error al iniciar sesión:', error);
-    throw error;
+  if (!res.ok) {
+    const error = await res.json();
+    throw new Error(error?.mensaje || 'Error en el login');
   }
+
+  return await res.json(); // puedes guardar token si lo devuelve
 }

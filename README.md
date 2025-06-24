@@ -51,6 +51,7 @@ inventario-tesoreria-frontend/
 │   │   │   ├── gastos.js
 │   │   │   ├── inventario.js
 │   │   │   ├── proveedores.js
+│   │   │   ├── login.js
 │   │   │   └── usuarios.js
 │   │   ├── components/             # Componentes JS reutilizables
 │   │   │   ├── modal.js
@@ -100,7 +101,7 @@ inventario-tesoreria-frontend/
 │   │   └── editar.html
 │   │
 │   ├── dashboard.html              # Vista principal tras login
-│   ├── login.html                  # Página de inicio de sesión
+│   ├── login.html                  # Página de inicio de sesión(http://localhost:8000/#/login)
 │   └── 404.html                    # Página de error para rutas no válidas
 │
 ├── index.html                      # Punto de entrada principal
