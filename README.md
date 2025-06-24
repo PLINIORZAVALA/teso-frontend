@@ -75,27 +75,27 @@ inventario-tesoreria-frontend/
 │   │   ├── footer.html
 │   │   └── modal-base.html
 │   │
-│   ├── compras/                    # Vistas de compras -> Falta implementar logica y diseño
+│   ├── compras/                    # Vistas de compras 
 │   │   ├── listar.html
 │   │   ├── registrar.html
 │   │   └── editar.html
 │   │
-│   ├── gastos/                     # Vistas de gastos -> Implementado con diseño 
+│   ├── gastos/                     # Vistas de gastos  
 │   │   ├── listar.html
 │   │   ├── registrar.html
 │   │   └── editar.html
 │   │
-│   ├── inventario/                 # Vistas de inventario -> Implementado con diseño
+│   ├── inventario/                 # Vistas de inventario 
 │   │   ├── listar.html
 │   │   ├── registrar.html
 │   │   └── editar.html
 │   │
-│   ├── proveedores/                # Vistas de proveedores -> Implementación con diseño
+│   ├── proveedores/                # Vistas de proveedores 
 │   │   ├── listar.html
 │   │   ├── registrar.html
 │   │   └── editar.html
 │   │
-│   ├── usuarios/                   # Vistas de usuarios  -> Implementación con diseño
+│   ├── usuarios/                   # Vistas de usuarios  
 │   │   ├── listar.html
 │   │   ├── registrar.html
 │   │   └── editar.html
