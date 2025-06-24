@@ -1,31 +1,15 @@
-const API_BASE_URL = 'http://localhost:3000/api/inventario'; // Ajusta a tu backend
+const API_URL = 'http://localhost:5001/api/inventario/';
 
 export async function obtenerInventario() {
-  try {
-    const res = await fetch(API_BASE_URL);
-    const data = await res.json();
-    return data;
-  } catch (error) {
-    console.error('Error al obtener inventario:', error);
-    return [];
-  }
+  const res = await fetch(API_URL);
+  return await res.json();
 }
 
-export async function registrarProducto(producto) {
-  try {
-    const res = await fetch(API_BASE_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('token')}`
-      },
-      body: JSON.stringify(producto)
-    });
-
-    const data = await res.json();
-    return data;
-  } catch (error) {
-    console.error('Error al registrar producto:', error);
-    return { success: false };
-  }
+export async function registrarProductoInventario(data) {
+  const res = await fetch(API_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  });
+  return await res.json();
 }

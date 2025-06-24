@@ -1,31 +1,35 @@
-const API_BASE_URL = 'http://localhost:3000/api/proveedores'; // Ajustar según backend
+const API_URL = 'http://localhost:5001/api/proveedor/';
 
 export async function obtenerProveedores() {
-  try {
-    const res = await fetch(API_BASE_URL);
-    const data = await res.json();
-    return data;
-  } catch (error) {
-    console.error('Error al obtener proveedores:', error);
-    return [];
-  }
+  const res = await fetch(API_URL);
+  return await res.json();
 }
 
-export async function registrarProveedor(proveedor) {
-  try {
-    const res = await fetch(API_BASE_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('token')}`
-      },
-      body: JSON.stringify(proveedor)
-    });
+export async function registrarProveedor(data) {
+  const res = await fetch(API_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  });
+  return await res.json();
+}
 
-    const data = await res.json();
-    return data;
-  } catch (error) {
-    console.error('Error al registrar proveedor:', error);
-    return { success: false };
-  }
+export async function obtenerProveedorPorId(id) {
+  const res = await fetch(`${API_URL}${id}`);
+  return await res.json();
+}
+
+export async function actualizarProveedor(id, data) {
+  const res = await fetch(`${API_URL}${id}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  });
+  return await res.json();
+}
+
+export async function eliminarProveedor(id) {
+  await fetch(`${API_URL}${id}`, {
+    method: 'DELETE',
+  });
 }

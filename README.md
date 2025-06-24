@@ -38,6 +38,9 @@ inventario-tesoreria-frontend/
 │   │       ├── proveedores.css
 │   │       ├── dashboard.css
 │   │       ├── login.css
+│   │       ├── listar.css
+│   │       ├── registrar.css
+│   │       ├── editar.css
 │   │       └── usuarios.css
 │   │
 │   ├── js/
@@ -71,27 +74,27 @@ inventario-tesoreria-frontend/
 │   │   ├── footer.html
 │   │   └── modal-base.html
 │   │
-│   ├── compras/                    # Vistas de compras
+│   ├── compras/                    # Vistas de compras -> Falta implementar logica y diseño
 │   │   ├── listar.html
 │   │   ├── registrar.html
 │   │   └── editar.html
 │   │
-│   ├── gastos/                     # Vistas de gastos
+│   ├── gastos/                     # Vistas de gastos -> Implementado con diseño 
 │   │   ├── listar.html
 │   │   ├── registrar.html
 │   │   └── editar.html
 │   │
-│   ├── inventario/                 # Vistas de inventario
+│   ├── inventario/                 # Vistas de inventario -> Implementado con diseño
 │   │   ├── listar.html
 │   │   ├── registrar.html
 │   │   └── editar.html
 │   │
-│   ├── proveedores/                # Vistas de proveedores
+│   ├── proveedores/                # Vistas de proveedores -> Implementación con diseño
 │   │   ├── listar.html
 │   │   ├── registrar.html
 │   │   └── editar.html
 │   │
-│   ├── usuarios/                   # Vistas de usuarios
+│   ├── usuarios/                   # Vistas de usuarios  -> Implementación con diseño
 │   │   ├── listar.html
 │   │   ├── registrar.html
 │   │   └── editar.html

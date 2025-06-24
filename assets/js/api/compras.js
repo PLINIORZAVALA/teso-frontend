@@ -1,31 +1,27 @@
-const API_BASE_URL = 'http://localhost:3000/api/compras'; // Ajustar según tu backend
+const API_URL = 'http://localhost:5001/api/compra/';
 
 export async function obtenerCompras() {
   try {
-    const res = await fetch(API_BASE_URL);
-    const data = await res.json();
-    return data;
+    const res = await fetch(API_URL);
+    return await res.json();
   } catch (error) {
-    console.error('Error al obtener compras:', error);
+    console.error('❌ Error al obtener compras:', error);
     return [];
   }
 }
 
-export async function registrarCompra(compra) {
+export async function registrarCompra(data) {
   try {
-    const res = await fetch(API_BASE_URL, {
+    const res = await fetch(API_URL, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('token')}`
+        'Content-Type': 'application/json'
       },
-      body: JSON.stringify(compra)
+      body: JSON.stringify(data)
     });
-
-    const data = await res.json();
-    return data;
+    return await res.json();
   } catch (error) {
-    console.error('Error al registrar compra:', error);
+    console.error('❌ Error al registrar compra:', error);
     return { success: false };
   }
 }

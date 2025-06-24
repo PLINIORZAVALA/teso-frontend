@@ -1,24 +1,25 @@
-<link rel="stylesheet" href="../../assets/css/components/buttons.css">
-<link rel="stylesheet" href="../../assets/css/components/forms.css">
-<link rel="stylesheet" href="../../assets/css/components/tables.css">
-<section class="inventario-lista">
-  <h2>Inventario</h2>
-
-  <button class="btn-primary" onclick="window.location.hash = '#/inventario/registrar'">
-    ➕ Nuevo producto
-  </button>
-
-  <table id="tabla-inventario" class="table">
+<!DOCTYPE html>
+<html lang="es">
+<link rel="stylesheet" href="../../assets/css/views/listar.css">
+<head>
+  <meta charset="UTF-8">
+  <title>Inventario</title>
+</head>
+<body>
+  <h2>Listado de Inventario</h2>
+  <button onclick="window.location.href='registrar.html'">Agregar Producto</button>
+  <table border="1">
     <thead>
       <tr>
-        <th>Nombre</th>
-        <th>Categoría</th>
+        <th>ID</th>
+        <th>Producto</th>
         <th>Cantidad</th>
-        <th>Precio</th>
+        <th>Ubicación</th>
+        <th>ID Compra</th>
       </tr>
     </thead>
-    <tbody>
-      <!-- Contenido dinámico -->
-    </tbody>
+    <tbody id="tabla-inventario"></tbody>
   </table>
-</section>
+  <script type="module" src="../../assets/js/views/inventario.js"></script>
+</body>
+</html>

@@ -1,25 +1,25 @@
-<link rel="stylesheet" href="../../assets/css/components/buttons.css">
-<link rel="stylesheet" href="../../assets/css/components/forms.css">
-<link rel="stylesheet" href="../../assets/css/components/tables.css">
-<link rel="stylesheet" href="../../assets/css/views/gastos.css">
-<section class="gastos-lista">
-  <h2>Gastos</h2>
-
-  <button class="btn-primary" onclick="window.location.hash = '#/gastos/registrar'">
-    ➕ Nuevo gasto
-  </button>
-
-  <table id="tabla-gastos" class="table">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Listado de Gastos</title>
+</head>
+<link rel="stylesheet" href="../../assets/css/views/listar.css">
+<body>
+  <h2>Listado de Gastos</h2>
+  <button onclick="window.location.href='registrar.html'">Registrar Gasto</button>
+  <table border="1">
     <thead>
       <tr>
+        <th>ID</th>
         <th>Descripción</th>
-        <th>Categoría</th>
         <th>Monto</th>
-        <th>Fecha</th>
+        <th>ID Compra</th>
       </tr>
     </thead>
-    <tbody>
-      <!-- Datos cargados dinámicamente -->
-    </tbody>
+    <tbody id="tabla-gastos"></tbody>
   </table>
-</section>
+
+  <script type="module" src="../../assets/js/views/gastos.js"></script>
+</body>
+</html>

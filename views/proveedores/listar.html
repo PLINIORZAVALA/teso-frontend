@@ -1,25 +1,26 @@
-<link rel="stylesheet" href="../../assets/css/components/buttons.css">
-<link rel="stylesheet" href="../../assets/css/components/forms.css">
-<link rel="stylesheet" href="../../assets/css/components/tables.css">
-<link rel="stylesheet" href="../../assets/css/views/proveedores.css">
-<section class="proveedores-lista">
-  <h2>Proveedores</h2>
-
-  <button class="btn-primary" onclick="window.location.hash = '#/proveedores/registrar'">
-    ➕ Nuevo proveedor
-  </button>
-
-  <table id="tabla-proveedores" class="table">
+<!DOCTYPE html>
+<html lang="es">
+<link rel="stylesheet" href="../../assets/css/views/listar.css">
+<head>
+  <meta charset="UTF-8">
+  <title>Listado de Proveedores</title>
+</head>
+<body>
+  <h2>Listado de Proveedores</h2>
+  <button onclick="window.location.href='registrar.html'">Registrar Proveedor</button>
+  <table border="1">
     <thead>
       <tr>
+        <th>ID</th>
         <th>Nombre</th>
-        <th>RUC</th>
-        <th>Dirección</th>
-        <th>Teléfono</th>
+        <th>Contacto</th>
+        <th>Productos Suministrados</th>
+        <th>Acciones</th>
       </tr>
     </thead>
-    <tbody>
-      <!-- Cargado dinámicamente -->
-    </tbody>
+    <tbody id="tabla-proveedores"></tbody>
   </table>
-</section>
+
+  <script type="module" src="../../assets/js/views/proveedores.js"></script>
+</body>
+</html>

@@ -1,49 +1,19 @@
-<link rel="stylesheet" href="../../assets/css/components/buttons.css">
-<link rel="stylesheet" href="../../assets/css/components/forms.css">
-<link rel="stylesheet" href="../../assets/css/components/tables.css">
-<link rel="stylesheet" href="../../assets/css/views/proveedores.css">
-<section class="proveedores-form">
+<!DOCTYPE html>
+<html lang="es">
+<link rel="stylesheet" href="../../assets/css/views/registrar.css">
+<head>
+  <meta charset="UTF-8">
+  <title>Registrar Proveedor</title>
+</head>
+<body>
   <h2>Registrar Proveedor</h2>
-
-  <form id="form-registrar-proveedor">
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="nombre" required />
-
-    <label for="ruc">RUC:</label>
-    <input type="text" id="ruc" name="ruc" required pattern="[0-9]{11}" />
-
-    <label for="direccion">Dirección:</label>
-    <input type="text" id="direccion" name="direccion" required />
-
-    <label for="telefono">Teléfono:</label>
-    <input type="text" id="telefono" name="telefono" required />
-
-    <button type="submit" class="btn-primary">Guardar</button>
+  <form id="form-proveedor">
+    <input type="text" name="nombre" placeholder="Nombre" required />
+    <input type="email" name="contacto" placeholder="Correo de contacto" required />
+    <input type="text" name="productos_suministrados" placeholder="Productos suministrados" required />
+    <button type="submit">Registrar</button>
   </form>
-</section>
 
-<script type="module">
-  import { registrarProveedor } from '../../assets/js/api/proveedores.js';
-  import { showNotification } from '../../assets/js/components/notifications.js';
-
-  const form = document.getElementById('form-registrar-proveedor');
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const proveedor = {
-      nombre: form.nombre.value,
-      ruc: form.ruc.value,
-      direccion: form.direccion.value,
-      telefono: form.telefono.value
-    };
-
-    const resultado = await registrarProveedor(proveedor);
-    if (resultado.success) {
-      showNotification('Proveedor registrado correctamente');
-      window.location.hash = '#/proveedores';
-    } else {
-      showNotification('Error al registrar proveedor', 'error');
-    }
-  });
-</script>
+  <script type="module" src="../../assets/js/views/proveedores.js"></script>
+</body>
+</html>

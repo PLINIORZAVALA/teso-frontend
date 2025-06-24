@@ -1,25 +1,24 @@
-<link rel="stylesheet" href="../../assets/css/components/buttons.css">
-<link rel="stylesheet" href="../../assets/css/components/forms.css">
-<link rel="stylesheet" href="../../assets/css/components/tables.css">
-<section class="compras-lista">
-  <h2>Compras</h2>
-
-  <button class="btn-primary" onclick="window.location.hash = '#/compras/registrar'">
-    ➕ Nueva compra
-  </button>
-
-  <table id="tabla-compras" class="table">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Listado de Compras</title>
+  <link rel="stylesheet" href="../../assets/css/components/tables.css" />
+</head>
+<body>
+  <h2>Listado de Compras</h2>
+  <button onclick="window.location.href='registrar.html'">Registrar Compra</button>
+  <table border="1">
     <thead>
       <tr>
-        <th>Proveedor</th>
-        <th>Producto</th>
-        <th>Cantidad</th>
-        <th>Total</th>
-        <th>Fecha</th>
+        <th>ID</th>
+        <th>ID Usuario</th>
+        <th>ID Proveedor</th>
       </tr>
     </thead>
-    <tbody>
-      <!-- Datos cargados dinámicamente -->
-    </tbody>
+    <tbody id="tabla-compras"></tbody>
   </table>
-</section>
+
+  <script type="module" src="../../assets/js/views/compras.js"></script>
+</body>
+</html>

@@ -7,7 +7,7 @@ import {
 } from '../api/usuarios.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
-  // Vista LISTAR
+  // LISTAR
   const tabla = document.getElementById('tabla-usuarios');
   if (tabla) {
     const usuarios = await obtenerUsuarios();
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
-  // Vista REGISTRAR
+  // REGISTRAR
   const formRegistrar = document.getElementById('form-usuario');
   if (formRegistrar) {
     formRegistrar.addEventListener('submit', async (e) => {
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
-  // Vista EDITAR
+  // EDITAR
   const formEditar = document.getElementById('form-editar-usuario');
   if (formEditar) {
     const params = new URLSearchParams(window.location.search);
@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     formEditar.nombre.value = usuario.nombre;
     formEditar.correo.value = usuario.correo;
     formEditar.rol.value = usuario.rol;
+    formEditar.contraseña.value = usuario.contraseña ?? '';
 
     formEditar.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -68,8 +69,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 });
 
-// Global para usar desde HTML
-window.eliminarUsuarioDesdeVista = async function(id) {
+// Global
+window.eliminarUsuarioDesdeVista = async function (id) {
   if (confirm('¿Eliminar este usuario?')) {
     await eliminarUsuario(id);
     location.reload();

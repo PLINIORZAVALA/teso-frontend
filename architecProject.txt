@@ -49,7 +49,7 @@ inventario-tesoreria-frontend/
 │   │   ├── footer.html
 │   │   └── modal-base.html
 │   │
-│   ├── compras/                    # Vistas de compras
+│   ├── compras/                    # Vistas de compras (Añadir)
 │   │   ├── listar.html
 │   │   ├── registrar.html
 │   │   └── editar.html
@@ -140,6 +140,7 @@ Vamos a construir el frontend paso a paso, siguiendo un orden lógico que garant
 =======================================================================
                    Conexion con el API
 =======================================================================
+
 ## ✅ **Módulos ya utilizables con la API disponible**
 
 1. ### 🔐 **Autenticación**

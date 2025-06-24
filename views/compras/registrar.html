@@ -1,53 +1,23 @@
-<link rel="stylesheet" href="../../assets/css/components/buttons.css">
-<link rel="stylesheet" href="../../assets/css/components/forms.css">
-<link rel="stylesheet" href="../../assets/css/components/tables.css">
-<link rel="stylesheet" href="../../assets/css/views/compras.css">
-<section class="compras-form">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Registrar Compra</title>
+  <link rel="stylesheet" href="../../assets/css/components/forms.css" />
+</head>
+<body>
   <h2>Registrar Compra</h2>
 
-  <form id="form-registrar-compra">
-    <label for="proveedor">Proveedor:</label>
-    <input type="text" id="proveedor" name="proveedor" required />
+  <form id="form-compra">
+    <label for="usuario_id">ID Usuario:</label>
+    <input type="number" name="usuario_id" required />
 
-    <label for="producto">Producto:</label>
-    <input type="text" id="producto" name="producto" required />
+    <label for="proveedor_id">ID Proveedor:</label>
+    <input type="number" name="proveedor_id" required />
 
-    <label for="cantidad">Cantidad:</label>
-    <input type="number" id="cantidad" name="cantidad" required min="1" />
-
-    <label for="total">Total:</label>
-    <input type="number" id="total" name="total" required step="0.01" min="0" />
-
-    <label for="fecha">Fecha:</label>
-    <input type="date" id="fecha" name="fecha" required />
-
-    <button type="submit" class="btn-primary">Guardar</button>
+    <button type="submit">Registrar</button>
   </form>
-</section>
 
-<script type="module">
-  import { registrarCompra } from '../../assets/js/api/compras.js';
-  import { showNotification } from '../../assets/js/components/notifications.js';
-
-  const form = document.getElementById('form-registrar-compra');
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const compra = {
-      proveedor: form.proveedor.value,
-      producto: form.producto.value,
-      cantidad: parseInt(form.cantidad.value),
-      total: parseFloat(form.total.value),
-      fecha: form.fecha.value
-    };
-
-    const resultado = await registrarCompra(compra);
-    if (resultado.success) {
-      showNotification('Compra registrada correctamente');
-      window.location.hash = '#/compras';
-    } else {
-      showNotification('Error al registrar la compra', 'error');
-    }
-  });
-</script>
+  <script type="module" src="../../assets/js/views/compras.js"></script>
+</body>
+</html>
