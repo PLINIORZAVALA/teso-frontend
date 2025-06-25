@@ -2,6 +2,11 @@ const routes = {
   '/': 'views/dashboard.html',
   '/login': 'views/login.html',
 
+  // Inventario
+  '/inventario': 'views/inventario/listar.html',
+  '/inventario/registrar': 'views/inventario/registrar.html',
+  '/inventario/editar': 'views/inventario/editar.html',
+
   // Usuarios
   '/usuarios': 'views/usuarios/listar.html',
   '/usuarios/registrar': 'views/usuarios/registrar.html',
@@ -16,6 +21,7 @@ const routes = {
   '/404': 'views/404.html'
 };
 
+
 async function loadView(route) {
   const path = routes[route] || routes['/404'];
 
@@ -24,15 +30,31 @@ async function loadView(route) {
     if (!res.ok) throw new Error('Vista no encontrada');
 
     const html = await res.text();
-    document.getElementById('app').innerHTML = html;
 
-    // Cargar el módulo JS según la ruta
+    // Si es login o dashboard, reemplaza todo el #app
+    if (route === '/login' || route === '/') {
+      document.getElementById('app').innerHTML = html;
+    } else {
+      // Si es otra ruta (inventario, usuarios, etc), solo actualiza el contenido del main
+      const main = document.getElementById('main-content');
+      if (main) {
+        main.innerHTML = html;
+      } else {
+        // Si no se ha cargado todavía el layout (header/sidebar), entonces cargar todo
+        document.getElementById('app').innerHTML = html;
+      }
+    }
+
+    // Cargar módulo JS correspondiente a la ruta
     if (route.startsWith('/usuarios')) {
       const module = await import('./views/usuarios.js');
-      module.initUsuarios(route);
+      module.initUsuarios?.(route);
     } else if (route.startsWith('/gastos')) {
       const module = await import('./views/gastos.js');
-      module.initGastos(route);
+      module.initGastos?.(route);
+    } else if (route.startsWith('/inventario')) {
+      const module = await import('./views/inventario.js');
+      module.initInventario?.(route);
     } else if (route === '/login') {
       const module = await import('./views/login.js');
       module.initLogin();
@@ -43,7 +65,8 @@ async function loadView(route) {
 
   } catch (err) {
     console.error('Error cargando la vista:', err);
-    document.getElementById('app').innerHTML = `<h2>Error cargando la vista</h2>`;
+    const container = document.getElementById('main-content') || document.getElementById('app');
+    container.innerHTML = `<h2>Error cargando la vista</h2>`;
   }
 }
 
@@ -52,6 +75,5 @@ function router() {
   loadView(route);
 }
 
-// Inicializar en primer carga y en cambios de hash
 window.addEventListener('hashchange', router);
 window.addEventListener('DOMContentLoaded', router);
