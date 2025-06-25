@@ -1,10 +1,10 @@
-// assets/js/views/gastos.js
+// ✅ assets/js/views/gastos.js
 import {
   obtenerGastos,
   registrarGasto
 } from '../api/gastos.js';
 
-document.addEventListener('DOMContentLoaded', async () => {
+export async function initGastos(route) {
   // LISTAR GASTOS
   const tabla = document.getElementById('tabla-gastos');
   if (tabla) {
@@ -39,11 +39,11 @@ document.addEventListener('DOMContentLoaded', async () => {
       try {
         await registrarGasto(data);
         alert('✅ Gasto registrado con éxito');
-        window.location.href = 'listar.html';
+        window.location.hash = '#/gastos'; // ✅ redirección SPA
       } catch (error) {
         console.error('❌ Error al registrar gasto:', error);
         alert('Error al registrar el gasto');
       }
     });
   }
-});
+}

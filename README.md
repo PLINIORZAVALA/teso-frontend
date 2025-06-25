@@ -77,17 +77,17 @@ inventario-tesoreria-frontend/
 │   │   ├── footer.html
 │   │   └── modal-base.html
 │   │
+│   ├── inventario/                 # Vistas de inventario 
+│   │   ├── listar.html
+│   │   ├── registrar.html
+│   │   └── editar.html
+|   |
 │   ├── compras/                    # Vistas de compras 
 │   │   ├── listar.html
 │   │   ├── registrar.html
 │   │   └── editar.html
 │   │
 │   ├── gastos/                     # Vistas de gastos  
-│   │   ├── listar.html
-│   │   ├── registrar.html
-│   │   └── editar.html
-│   │
-│   ├── inventario/                 # Vistas de inventario 
 │   │   ├── listar.html
 │   │   ├── registrar.html
 │   │   └── editar.html

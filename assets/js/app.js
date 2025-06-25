@@ -11,15 +11,14 @@ const routes = {
   '/compras': 'views/compras/listar.html',
   '/compras/registrar': 'views/compras/registrar.html',
 
+  // Gastos
+  '/gastos': 'views/gastos/listar.html',
+  '/gastos/registrar': 'views/gastos/registrar.html',
+
   // Usuarios
   '/usuarios': 'views/usuarios/listar.html',
   '/usuarios/registrar': 'views/usuarios/registrar.html',
   '/usuarios/editar': 'views/usuarios/editar.html',
-
-  // Gastos
-  '/gastos': 'views/gastos/listar.html',
-  '/gastos/registrar': 'views/gastos/registrar.html',
-  '/gastos/editar': 'views/gastos/editar.html',
 
   // Página no encontrada
   '/404': 'views/404.html'
