@@ -16,14 +16,22 @@ export async function initProveedores(route) {
         tabla.innerHTML = '';
         proveedores.forEach(p => {
           const fila = `
-            <tr>
+            <tr id="fila-proveedor-${p.id}">
               <td>${p.id}</td>
               <td>${p.nombre}</td>
               <td>${p.contacto}</td>
               <td>${p.productos_suministrados}</td>
               <td>
-                <button onclick="window.location.hash='#/proveedores/editar?id=${p.id}'">Editar</button>
-                <button onclick="eliminarProveedorDesdeVista(${p.id})">Eliminar</button>
+                <button 
+                  onclick="window.location.hash='#/proveedores/editar?id=${p.id}'"
+                  style="background-color: #3b82f6; color: white; border: none; padding: 6px 12px; border-radius: 4px; margin-right: 6px; cursor: pointer;">
+                  Editar
+                </button>
+                <button 
+                  onclick="eliminarProveedorDesdeVista(${p.id})"
+                  style="background-color: #ef4444; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer;">
+                  Eliminar
+                </button>
               </td>
             </tr>
           `;

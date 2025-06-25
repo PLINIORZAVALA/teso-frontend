@@ -15,18 +15,26 @@ export async function initUsuarios(route) {
         const usuarios = await obtenerUsuarios();
         tabla.innerHTML = '';
         usuarios.forEach(u => {
-        const fila = `
-          <tr id="fila-usuario-${u.id}">
-            <td>${u.id}</td>
-            <td>${u.nombre}</td>
-            <td>${u.correo}</td>
-            <td>${u.rol}</td>
-            <td>
-              <button onclick="window.location.hash='#/usuarios/editar?id=${u.id}'">Editar</button>
-              <button onclick="eliminarUsuarioDesdeVista(${u.id})">Eliminar</button>
-            </td>
-          </tr>
-        `;
+          const fila = `
+            <tr id="fila-usuario-${u.id}">
+              <td>${u.id}</td>
+              <td>${u.nombre}</td>
+              <td>${u.correo}</td>
+              <td>${u.rol}</td>
+              <td>
+                <button 
+                  onclick="window.location.hash='#/usuarios/editar?id=${u.id}'" 
+                  style="background-color: #3b82f6; color: white; border: none; padding: 6px 12px; border-radius: 4px; margin-right: 6px; cursor: pointer;">
+                  Editar
+                </button>
+                <button 
+                  onclick="eliminarUsuarioDesdeVista(${u.id})" 
+                  style="background-color: #ef4444; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer;">
+                  Eliminar
+                </button>
+              </td>
+            </tr>
+          `;
           tabla.innerHTML += fila;
         });
       } catch (error) {
