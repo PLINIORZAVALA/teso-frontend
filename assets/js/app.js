@@ -15,6 +15,11 @@ const routes = {
   '/gastos': 'views/gastos/listar.html',
   '/gastos/registrar': 'views/gastos/registrar.html',
 
+  // Proveedores
+  '/proveedores': 'views/proveedores/listar.html',
+  '/proveedores/registrar': 'views/proveedores/registrar.html',
+  '/proveedores/editar': 'views/proveedores/editar.html',
+
   // Usuarios
   '/usuarios': 'views/usuarios/listar.html',
   '/usuarios/registrar': 'views/usuarios/registrar.html',
@@ -24,9 +29,8 @@ const routes = {
   '/404': 'views/404.html'
 };
 
-
-async function loadView(route) {
-  const path = routes[route] || routes['/404'];
+async function loadView(baseRoute, fullRoute = baseRoute) {
+  const path = routes[baseRoute] || routes['/404'];
 
   try {
     const res = await fetch(path);
@@ -34,39 +38,35 @@ async function loadView(route) {
 
     const html = await res.text();
 
-    // Si es login o dashboard, reemplaza todo el #app
-    if (route === '/login' || route === '/') {
+    const main = document.getElementById('main-content');
+    if (baseRoute === '/login' || baseRoute === '/') {
       document.getElementById('app').innerHTML = html;
+    } else if (main) {
+      main.innerHTML = html;
     } else {
-      // Si es otra ruta (inventario, usuarios, etc), solo actualiza el contenido del main
-      const main = document.getElementById('main-content');
-      if (main) {
-        main.innerHTML = html;
-      } else {
-        // Si no se ha cargado todavía el layout (header/sidebar), entonces cargar todo
-        document.getElementById('app').innerHTML = html;
-      }
+      document.getElementById('app').innerHTML = html;
     }
 
     // Cargar módulo JS correspondiente a la ruta
-    if (route.startsWith('/usuarios')) {
-      const module = await import('./views/usuarios.js');
-      module.initUsuarios?.(route);
-    } else if (route.startsWith('/gastos')) {
-      const module = await import('./views/gastos.js');
-      module.initGastos?.(route);
-    } else if (route.startsWith('/inventario')) {
-      const module = await import('./views/inventario.js');
-      module.initInventario?.(route);
-    } else if (route === '/login') {
-      const module = await import('./views/login.js');
-      module.initLogin();
-    } else if (route.startsWith('/compras')) {
-      const module = await import('./views/compras.js');
-      module.initCompras?.(route);
-    } else if (route === '/') {
-      const module = await import('./views/dashboard.js');
-      module.initDashboard();
+    const loadModule = async (path, fnName) => {
+      const module = await import(path);
+      module[fnName]?.(fullRoute);
+    };
+
+    if (baseRoute.startsWith('/usuarios')) {
+      await loadModule('./views/usuarios.js', 'initUsuarios');
+    } else if (baseRoute.startsWith('/gastos')) {
+      await loadModule('./views/gastos.js', 'initGastos');
+    } else if (baseRoute.startsWith('/inventario')) {
+      await loadModule('./views/inventario.js', 'initInventario');
+    } else if (baseRoute.startsWith('/compras')) {
+      await loadModule('./views/compras.js', 'initCompras');
+    } else if (baseRoute.startsWith('/proveedores')) {
+      await loadModule('./views/proveedores.js', 'initProveedores');
+    } else if (baseRoute === '/login') {
+      await loadModule('./views/login.js', 'initLogin');
+    } else if (baseRoute === '/') {
+      await loadModule('./views/dashboard.js', 'initDashboard');
     }
 
   } catch (err) {
@@ -77,8 +77,9 @@ async function loadView(route) {
 }
 
 function router() {
-  const route = window.location.hash.slice(1) || '/';
-  loadView(route);
+  const fullRoute = window.location.hash.slice(1) || '/';
+  const baseRoute = fullRoute.split('?')[0];
+  loadView(baseRoute, fullRoute);
 }
 
 window.addEventListener('hashchange', router);
