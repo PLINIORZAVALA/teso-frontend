@@ -110,16 +110,16 @@ main {
 /* ============================= */
 .sidebar {
   position: fixed;
-  top: 0;
+  top: 50px; 
   left: 0;
   width: 220px;
-  height: 100vh;
-  background-color: #1e293b; /* Fondo oscuro igual que header */
+  height: 100vh; 
+  background-color: #1e293b;
   padding: 1.5rem 1rem;
   overflow-y: auto;
   box-shadow: 2px 0 6px rgba(0,0,0,0.1);
   border-right: 1px solid #334155;
-  z-index: 100; /* igual que header y footer */
+  z-index: 100;
 }
 
 /* Lista de navegación dentro del sidebar */

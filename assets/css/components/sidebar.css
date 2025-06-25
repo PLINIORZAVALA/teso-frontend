@@ -104,9 +104,10 @@ body {
 
 /* Contenido principal */
 .main-content {
-    flex: 1;
-    padding: 24px;
-    overflow-y: auto;
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+  margin-top: 50px; /* Añade espacio desde la parte superior */
 }
 
 .content-placeholder {
