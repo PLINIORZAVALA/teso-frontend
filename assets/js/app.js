@@ -7,6 +7,10 @@ const routes = {
   '/inventario/registrar': 'views/inventario/registrar.html',
   '/inventario/editar': 'views/inventario/editar.html',
 
+  // Compras
+  '/compras': 'views/compras/listar.html',
+  '/compras/registrar': 'views/compras/registrar.html',
+
   // Usuarios
   '/usuarios': 'views/usuarios/listar.html',
   '/usuarios/registrar': 'views/usuarios/registrar.html',
@@ -58,6 +62,9 @@ async function loadView(route) {
     } else if (route === '/login') {
       const module = await import('./views/login.js');
       module.initLogin();
+    } else if (route.startsWith('/compras')) {
+      const module = await import('./views/compras.js');
+      module.initCompras?.(route);
     } else if (route === '/') {
       const module = await import('./views/dashboard.js');
       module.initDashboard();
