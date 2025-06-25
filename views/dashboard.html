@@ -1,23 +1,40 @@
-<link rel="stylesheet" href="../assets/css/views/dashboard.css">
-<section class="dashboard">
-  <h2>Bienvenido al Panel Principal</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../assets/css/views/dashboard.css">
+</head>
+<body>
+  <!-- views/dashboard.html -->
+  <section id="header"></section>
+  <section id="sidebar"></section>
 
-  <div class="dashboard-cards">
-    <div class="card">
-      <h3>Inventario</h3>
-      <p>Consulta y gestiona los productos.</p>
+  <main id="main-content">
+    <h2>Dashboard</h2>
+
+    <div class="dashboard-cards">
+      <div class="card">
+        <h3>Inventario</h3>
+        <p>Consulta y gestiona los productos.</p>
+      </div>
+      <div class="card">
+        <h3>Compras</h3>
+        <p>Revisa las compras realizadas.</p>
+      </div>
+      <div class="card">
+        <h3>Gastos</h3>
+        <p>Controla y analiza los gastos.</p>
+      </div>
+      <div class="card">
+        <h3>Usuarios</h3>
+        <p>Administra los usuarios del sistema.</p>
+      </div>
     </div>
-    <div class="card">
-      <h3>Compras</h3>
-      <p>Revisa las compras realizadas.</p>
-    </div>
-    <div class="card">
-      <h3>Gastos</h3>
-      <p>Controla y analiza los gastos.</p>
-    </div>
-    <div class="card">
-      <h3>Usuarios</h3>
-      <p>Administra los usuarios del sistema.</p>
-    </div>
-  </div>
-</section>
+  </main>
+
+  <section id="modal"></section>
+  <section id="footer"></section>
+</body>
+</html>

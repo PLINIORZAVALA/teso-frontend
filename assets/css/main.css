@@ -1,13 +1,22 @@
-/* Variables CSS */
+/* ============================= */
+/* 🎨 Variables de diseño global */
+/* ============================= */
 :root {
-  --primary-color: #007bff;
-  --secondary-color: #6c757d;
-  --background-color: #f8f9fa;
-  --text-color: #212529;
+  --primary-color: #2563eb;       /* Azul profesional */
+  --primary-hover: #1e40af;
+  --secondary-color: #64748b;     /* Gris azulado */
+  --accent-color: #f43f5e;        /* Rojo coral para botones o alertas */
+  --background-color: #f1f5f9;    /* Gris claro de fondo */
+  --surface-color: #ffffff;
+  --text-color: #111827;          /* Gris oscuro */
+  --border-color: #e5e7eb;
+
   --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Reset básico */
+/* ============================= */
+/* 🔄 Reset básico               */
+/* ============================= */
 * {
   margin: 0;
   padding: 0;
@@ -18,44 +27,143 @@ body {
   font-family: var(--font-family);
   background-color: var(--background-color);
   color: var(--text-color);
+  line-height: 1.5;
 }
 
-/* Contenedor principal */
+/* ============================= */
+/* 📦 Contenedor general         */
+/* ============================= */
 #app {
-  padding: 20px;
+  padding: 0px;
 }
-.header {
-  background-color: var(--primary-color);
-  color: white;
-  padding: 1rem;
+
+main {
+  margin-left: 220px;
+  padding: 2rem;
+}
+
+/* ============================= */
+/* 🔝 Header administrador       */
+/* ============================= */
+.admin-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #1e293b; /* Consistente con sidebar */
+  color: #f8fafc;
+  padding: 0 1.5rem;
+  border-bottom: 1px solid #334155;
+  z-index: 100; /* Asegura que esté encima */
 }
 
-.nav ul {
-  list-style: none;
+/* Logo o título del sistema */
+.admin-logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #f8fafc;
+  margin: 0;
+}
+
+/* Contenedor derecho (nombre + botón) */
+.admin-header__right {
   display: flex;
+  align-items: center;
   gap: 1rem;
 }
 
-.sidebar {
-  width: 200px;
-  background-color: #e9ecef;
-  padding: 1rem;
-  height: 100vh;
-  position: fixed;
+/* Nombre del usuario */
+.admin-username {
+  font-size: 0.95rem;
+  color: #cbd5e1;
 }
 
+/* Botón de logout */
+.logout-btn {
+  background: none;
+  border: none;
+  color: var(--accent-color);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.3rem;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+
+/* Icono hover */
+.logout-btn:hover svg {
+  stroke: #dc2626;
+}
+
+.logout-btn:hover {
+  color: #dc2626;
+}
+
+/* ============================= */
+/* 📚 Sidebar                    */
+/* ============================= */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 100vh;
+  background-color: #1e293b; /* Fondo oscuro igual que header */
+  padding: 1.5rem 1rem;
+  overflow-y: auto;
+  box-shadow: 2px 0 6px rgba(0,0,0,0.1);
+  border-right: 1px solid #334155;
+  z-index: 100; /* igual que header y footer */
+}
+
+/* Lista de navegación dentro del sidebar */
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* Estilos para los enlaces */
+.sidebar a {
+  color: #f1f5f9; /* Texto claro */
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  display: block;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+/* Hover */
+.sidebar a:hover {
+  background-color: #334155;
+  color: var(--accent-color); /* Tu color primario o alternativo */
+}
+/* ============================= */
+/* 📥 Footer                     */
+/* ============================= */
 .footer {
-  text-align: center;
-  padding: 1rem;
-  background-color: #f1f1f1;
   position: fixed;
   bottom: 0;
-  width: 100%;
+  left: 100PX; /* 👈 Asegura que empiece desde el borde izquierdo */
+  width: 100%; /* 👈 Asegura que abarque todo el ancho */
+  background-color: #f1f5f9;
+  text-align: center;
+  padding: 1rem;
+  border-top: 1px solid var(--border-color);
 }
-
+/* ============================= */
+/* 🧊 Modales                    */
+/* ============================= */
 .modal.hidden {
   display: none;
 }
@@ -73,10 +181,12 @@ body {
 }
 
 .modal-content {
-  background: white;
+  background: var(--surface-color);
   padding: 2rem;
   border-radius: 8px;
   position: relative;
+  max-width: 500px;
+  width: 100%;
 }
 
 .modal-close {
@@ -85,4 +195,135 @@ body {
   right: 15px;
   cursor: pointer;
   font-size: 1.5rem;
+}
+
+/* ============================= */
+/* 🔔 Notificaciones             */
+/* ============================= */
+.notification {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background-color: #16a34a;
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  z-index: 2000;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.4s ease;
+}
+
+.notification.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================= */
+/* 🧾 Tablas                     */
+/* ============================= */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background-color: var(--surface-color);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+th, td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  text-align: left;
+}
+
+th {
+  background-color: var(--primary-color);
+  color: white;
+  cursor: pointer;
+  user-select: none;
+}
+
+tr:hover {
+  background-color: #f8fafc;
+}
+
+/* ============================= */
+/* 📦 Contenedores de sección    */
+/* ============================= */
+.section-container {
+  background-color: var(--surface-color);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.section-title {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+/* ============================= */
+/* 🔘 Botones estándar           */
+/* ============================= */
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--primary-hover);
+}
+
+/* ============================= */
+/* 🧾 Formularios                */
+/* ============================= */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-family: var(--font-family);
+  font-size: 1rem;
+  background-color: #fff;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.25);
+}
+
+label {
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  display: block;
+  color: var(--text-color);
+}
+
+/* ============================= */
+/* 🧩 Animaciones                */
+/* ============================= */
+@keyframes slideInLeft {
+  from { transform: translateX(-50px); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
 }

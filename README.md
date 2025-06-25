@@ -57,6 +57,7 @@ inventario-tesoreria-frontend/
 │   │   │   ├── modal.js
 │   │   │   ├── notifications.js
 │   │   │   ├── sidebar.js
+│   │   │   ├── partials-loader.js
 │   │   │   └── table-manager.js
 │   │   └── views/                  # Scripts específicos por vista
 │   │       ├── compras.js
@@ -64,6 +65,7 @@ inventario-tesoreria-frontend/
 │   │       ├── inventario.js
 │   │       ├── proveedores.js
 │   │       ├── login.js
+│   |       ├── dashboard.js         
 │   │       └── usuarios.js
 │   │
 │   └── images/                     # Imágenes e iconos

@@ -1,13 +1,19 @@
 const routes = {
-  '/login': 'views/login.html',
   '/': 'views/dashboard.html',
+  '/login': 'views/login.html',
+
+  // Usuarios
   '/usuarios': 'views/usuarios/listar.html',
   '/usuarios/registrar': 'views/usuarios/registrar.html',
   '/usuarios/editar': 'views/usuarios/editar.html',
+
+  // Gastos
   '/gastos': 'views/gastos/listar.html',
   '/gastos/registrar': 'views/gastos/registrar.html',
   '/gastos/editar': 'views/gastos/editar.html',
-  '/404': 'views/404.html',
+
+  // Página no encontrada
+  '/404': 'views/404.html'
 };
 
 async function loadView(route) {
@@ -15,29 +21,29 @@ async function loadView(route) {
 
   try {
     const res = await fetch(path);
+    if (!res.ok) throw new Error('Vista no encontrada');
+
     const html = await res.text();
     document.getElementById('app').innerHTML = html;
 
-    // Cargar módulo según la ruta
+    // Cargar el módulo JS según la ruta
     if (route.startsWith('/usuarios')) {
       const module = await import('./views/usuarios.js');
-      await module.initUsuarios(route);
+      module.initUsuarios(route);
     } else if (route.startsWith('/gastos')) {
       const module = await import('./views/gastos.js');
-      await module.initGastos(route);
+      module.initGastos(route);
     } else if (route === '/login') {
       const module = await import('./views/login.js');
-      await module.initLogin();
+      module.initLogin();
     } else if (route === '/') {
       const module = await import('./views/dashboard.js');
-      await module.initDashboard();
-    } else if (route === '/404') {
-      document.getElementById('app').innerHTML = `<h2>Página no encontrada</h2>`;
+      module.initDashboard();
     }
 
   } catch (err) {
+    console.error('Error cargando la vista:', err);
     document.getElementById('app').innerHTML = `<h2>Error cargando la vista</h2>`;
-    console.error(err);
   }
 }
 
@@ -46,5 +52,6 @@ function router() {
   loadView(route);
 }
 
+// Inicializar en primer carga y en cambios de hash
 window.addEventListener('hashchange', router);
 window.addEventListener('DOMContentLoaded', router);

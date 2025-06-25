@@ -1,15 +1,15 @@
-export function loadTableData(tableId, data, columns) {
-  const table = document.getElementById(tableId);
-  const tbody = table.querySelector('tbody');
-  tbody.innerHTML = '';
+// 📦 components/table-manager.js
+export function ordenarTabla(idTabla, columnaIndex) {
+  const tabla = document.getElementById(idTabla);
+  const filas = Array.from(tabla.querySelectorAll('tbody tr'));
 
-  data.forEach(item => {
-    const row = document.createElement('tr');
-    columns.forEach(col => {
-      const cell = document.createElement('td');
-      cell.textContent = item[col] ?? '';
-      row.appendChild(cell);
-    });
-    tbody.appendChild(row);
+  const ordenado = filas.sort((a, b) => {
+    const valA = a.children[columnaIndex].textContent.trim();
+    const valB = b.children[columnaIndex].textContent.trim();
+    return valA.localeCompare(valB, undefined, { numeric: true });
   });
+
+  const cuerpo = tabla.querySelector('tbody');
+  cuerpo.innerHTML = '';
+  ordenado.forEach(fila => cuerpo.appendChild(fila));
 }

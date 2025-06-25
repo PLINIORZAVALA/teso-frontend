@@ -1,15 +1,27 @@
-<link rel="stylesheet" href="../../assets/css/main.css">
-<header class="header">
-  <h1 class="logo">TESO</h1>
-  <nav class="nav">
-    <ul>
-      <li><a href="#/">Inicio</a></li>
-      <li><a href="#/inventario">Inventario</a></li>
-      <li><a href="#/compras">Compras</a></li>
-      <li><a href="#/gastos">Gastos</a></li>
-      <li><a href="#/proveedores">Proveedores</a></li>
-      <li><a href="#/usuarios">Usuarios</a></li>
-      <li><a href="#/login">Cerrar sesión</a></li>
-    </ul>
-  </nav>
-</header>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Header Administrativo</title>
+  <link rel="stylesheet" href="../../assets/css/main.css" />
+</head>
+<body>
+  <header class="admin-header">
+    <div class="admin-header__left">
+      <span class="admin-logo">TESO</span>
+    </div>
+    <div class="admin-header__right">
+      <span id="adminName" class="admin-username">Administrador</span>
+      <button id="logoutBtn" class="logout-btn" title="Cerrar sesión">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+          <polyline points="16 17 21 12 16 7"/>
+          <line x1="21" y1="12" x2="9" y2="12"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+  <script type="module" src="../../assets/js/components/header.js"></script>
+</body>
+</html>
