@@ -3,7 +3,7 @@ import {
   registrarCompra
 } from '../api/compras.js';
 
-document.addEventListener('DOMContentLoaded', async () => {
+export async function initCompras(route) {
   // LISTAR COMPRAS
   const tabla = document.getElementById('tabla-compras');
   if (tabla) {
@@ -37,11 +37,11 @@ document.addEventListener('DOMContentLoaded', async () => {
       try {
         await registrarCompra(data);
         alert('✅ Compra registrada con éxito');
-        window.location.href = 'listar.html';
+        window.location.hash = '#/compras'; // redirección con hash
       } catch (error) {
         console.error('❌ Error al registrar compra:', error);
         alert('Error al registrar la compra');
       }
     });
   }
-});
+}

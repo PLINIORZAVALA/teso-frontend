@@ -3,7 +3,7 @@ import {
   registrarProductoInventario
 } from '../api/inventario.js';
 
-document.addEventListener('DOMContentLoaded', async () => {
+export async function initInventario(route) {
   // LISTAR INVENTARIO
   const tabla = document.getElementById('tabla-inventario');
   if (tabla) {
@@ -39,11 +39,11 @@ document.addEventListener('DOMContentLoaded', async () => {
       try {
         await registrarProductoInventario(data);
         alert('✅ Producto registrado en inventario');
-        window.location.href = 'listar.html';
+        window.location.hash = '#/inventario'; // redirige usando el hash
       } catch (error) {
         console.error('❌ Error al registrar producto:', error);
         alert('Error al registrar producto');
       }
     });
   }
-});
+}
